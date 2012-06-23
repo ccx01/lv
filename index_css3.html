@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>the day of sign lv6.1</title>
+<link href="css/impress-demo.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/layout.js"></script>
+<script type="text/javascript">
+
+ $(function() {
+ $('.msg').each(function(){
+   $(this).data( "txt", $.trim($(this).val()) );
+ }).focus(function(){
+   if ( $.trim($(this).val()) === $(this).data("txt") ) {
+     $(this).val("");
+   }
+ }).blur(function(){
+   if ( $.trim($(this).val()) === "" && !$(this).hasClass("once") ) {
+     $(this).val( $(this).data("txt") );
+   }
+ });
+});
+
+</script>
+</head>
+
+<body>
+<div id="impress" class="impress-not-supported">
+
+    <div class="fallback-message">
+        因为这次涉及到css3之类的，所以，最好<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html">使用最新的谷歌浏览器进行查看。</a>
+    </div>
+
+    <div id="bored" class="step slide" data-x="-1000" data-y="0">
+    <q>很想用这个效果来做游戏了，可是它主要使用了css3。。。所以，游戏继续修改中。。。
+    <br/>
+    另外，<a href="indexOld.html">点击跳转到原主页。</a>
+    </q>
+  </div>
+
+  <div class="step" data-x="1000" data-y="0">
+    <img src="images/ryu.gif"/>
+</div>
+
+  <div class="step slide" data-x="0" data-y="0" data-z="1000">
+    <q>
+    后面几个放的都是留言板内的信息（暂时）。<br/>这效果很适合单页网站。
+    </q>
+</div>
+
+  <div class="step tiny" data-x="0" data-y="500" data-z="100" data-rotate="-90">
+        信息1
+  </div>
+    
+    <div class="step tiny" data-x="0" data-y="-500" data-z="-2000" data-rotate="90">
+        信息2
+    </div>
+       
+<div class="step tiny" data-x="350" data-y="350" data-z="-500" data-rotate="-45">
+        信息3
+    </div>
+    
+  <div class="step tiny" data-x="-350" data-y="-350" data-z="-2500" data-rotate="135">
+        信息4
+  </div>
+    
+  <div class="step tiny" data-x="350" data-y="-350" data-z="-1500" data-rotate="45">
+        信息5
+  </div>
+    
+  <div class="step tiny" data-x="500" data-y="0" data-z="-1000" data-rotate="0">
+        信息6
+  </div>    
+    
+  <div class="step tiny" data-x="-500" data-y="0" data-z="-3000" data-rotate="180">
+        信息7
+  </div>
+
+  <div id="its-in-3d" class="step send" data-x="200" data-y="0" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+    <div>
+    <textarea cols="70" rows="5" class="msg" id="msg">吐槽领域（这里不是用来写名字的）</textarea>
+    <br/>
+    <input type="button" onclick="save()" value="发送"/>
+    <p></p>
+    </div>
+
+    </div>
+    
+<!--    <div id="overview" class="step" data-x="2500" data-y="1000" data-scale="5">
+    </div>-->
+
+</div>
+<div class="hint">
+    鼠标点击浅色区域，或者，按空格、方向键进行跳转
+</div>
+
+<script src="js/impress.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+
+#comments{width:100%;}
+
+#comments .commentlist {margin:0; padding:0;}
+
+#comments .commentlist ul{margin:0; padding:0; list-style:none;}
+
+#comments .commentlist li{margin:0 0 10px 0; padding:15px; list-style:none;}
+
+#comments .commentlist li{color:#666666; background-color:#F7F7F7;}
+#comments .commentlist li a{color:#02ACEE; background-color:#F7F7F7;}
+
+#comments .commentlist .name{font-weight:bold;}
+#comments .commentlist .submitdate{font-size:smaller;}
+
+#comments .commentlist p {margin:10px 5px 10px 0; padding:0; font-weight: normal;text-transform: none;word-break:break-all; width:100%;}
+
+#comments .commentlist li.odd .avatar{float:left;border:1px solid #EEEEEE; padding:2px; margin:5px; width:80px; height:80px;}
+#comments .commentlist li.even .avatar{float:right; border:1px solid #EEEEEE; padding:2px; margin:5px;; width:80px; height:80px;}
+
+#comments .commentlist li.odd .author{float:left;padding:2px; margin:5px;}
+
+.clear {clear: both;}

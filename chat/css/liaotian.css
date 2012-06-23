@@ -1,0 +1,45 @@
+*{margin:0; padding:0}
+body{
+	margin:10px;
+	font-family:Arial, Helvetica, sans-serif
+}
+#show{
+	height:370px;
+	overflow:auto;
+	border:1px solid #ccc;
+}
+h2{
+	padding:10px;
+	font-size:14px;
+	background-color: #D7E0E1;
+}
+#jieshao{
+	font-size: 14px;
+	color: #333;
+	margin: 70px;
+	line-height: 30px;
+}
+#words pre{
+	padding:20px 10px 10px 10px;
+	margin:10px;
+	border:1px solid #ccc;
+	font-size: 14px;
+	color: #333;
+}
+#words div{
+	border:1px solid #CCC;
+	margin: 3px;
+}
+#words div b{
+	color:#1348C6;
+	font-size:14px;
+}
+#words div small{
+	font-size:12px;
+	color:#666;
+	float:right;
+	margin-top:5px;
+	margin-right:15px;
+}
+#edit { margin-top:5px;}
+#nmsg { width:90%; height:30px;}

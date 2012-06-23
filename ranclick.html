@@ -1,0 +1,93 @@
+<html>
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link type="text/css" rel="stylesheet" href="css/playbg.css">
+<!--<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.dragsort.js"></script>-->
+<script type="text/javascript" src="js/play.js"></script>
+<script>window.onload = ggpai</script>
+
+</head>
+<body>
+<ul id="duishou">    <!--对手的牌-->
+<li> 
+<img src="images/shitou.png" onClick="card(0);" id="cp0" style=""/>
+</li>
+<li>
+<img src="images/beimian.png" onClick="card(1);" id="cp1" style="display:none"/>
+</li>
+<li>
+<img src="images/beimian.png" onClick="card(2);" id="cp2" style="display:none" />
+</li>
+</ul>
+<div id="duishouhp">
+              <input type=image img src="images/hp3.png" value="2" id="p2hp"/><p><strong>生命值</strong></p></div>
+<div id="duishoupic">
+<img src="images/player2.gif" onClick="card(2);" />
+<!--对手头像-->
+</div>
+
+<div id="topbox"></div>
+
+
+<ul id="gonggong">    <!--公共牌-->
+<li><div><a href="#"><span class="shuoming">这张为对方专属随机牌，玩家不可选择<br /><br /></span>
+<img src="images/beimian.png" onClick="" id="cg"/></a></div>
+</li>
+<li></li>
+<li><div><a href="#"><span class="shuoming">中间这3张为共有牌，双方均可选择<br /><br /></span>
+<img src="images/beimian.png" onClick="" id="g0"/></a></div>
+</li>
+<li><div><a href="#"><span class="shuoming">中间这3张为共有牌，双方均可选择<br /><br /></span>
+<img src="images/beimian.png" onClick="" id="g1"/></a></div>
+</li>
+<li><div><a href="#"><span class="shuoming">中间这3张为共有牌，双方均可选择<br /><br /></span>
+<img src="images/beimian.png" onClick="" id="g2" /></a></div>
+</li>
+<li></li>
+<li><div><a href="#"><span class="shuoming">这张是随机的，不过只有玩家能选择的<br /><br /></span>
+<img src="images/beimian.png" onClick="" id="pg" /></a></div>
+</li>
+</ul>
+
+<ul id="pk" style="display:none">    <!--对决阶段-->
+<li><div><img src="images/beimian.png" id="cpus" />
+</div></li>
+<li><div><img src="images/pk.png" id="cpk" onClick=""  />
+</div></li>
+<li><div><img src="images/beimian.png" id="playerc" />
+</div></li>
+</ul>
+<div class="bian">
+</div>
+<ul id="player">  <!--玩家的牌-->
+<li><div><a href="#"><span class="shuoming">每个角色都有一张专属的牌，只是目前只有一个角色<br /><br /></span>
+<img src="images/bu.png" onClick="" id="p3" name="card0"/></a></div>
+<!--角色固定牌-->
+</li>
+<li><div><a href="#"><span class="shuoming">点击上方的卡片进行选牌<br /><br /></span>
+<img src="images/beimian.png" name="card1" id="p1" onClick=""/></a>
+</div>
+</li>
+<li>
+<div><a href="#"><span class="shuoming">某种程度上，撤销操作相当麻烦，暂时没有撤销功能<br /><br /></span><img src="images/beimian.png" onClick="" id="c1" name="card2" style="display:none"/></a></div></li>
+</ul>
+<!--<script type="text/javascript">
+		$("#player, #duishou").dragsort({ dragSelector: "div", dragBetween: true, dragEnd: saveOrder, placeHolderTemplate: "<li class='placeHolder'><div></div></li>" });
+		
+		function saveOrder() {
+			var data = $("#player li").map(function() { return $(this).children().html(); }).get();
+			$("input[name=list1SortOrder]").val(data.join("|"));
+		};
+	</script>	-->
+<div id="playerpic">
+<img src="images/player11.gif"  onClick="pcai();"
+ /><!--角色头像-->
+</div>
+<div id="playerhp"><p><strong>生命值</strong></p>
+              <input type=image img src="images/hp3.png" value="2" id="p1hp"/>
+          </div>
+<div id="bottombox"></div>
+
+</body>
+</html>
