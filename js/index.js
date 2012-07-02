@@ -28,7 +28,7 @@
 	});
 /*end*/
 	for (var i = len - 1; i >= 0; i--){
-		item[i].angle = i * Math.PI * 2 / len;
+		item[i].angle = i * Math.PI * 2 / len - Math.PI / 2;
 	}
 /*mousemove animation*/
 	function rotate(){
@@ -86,11 +86,37 @@ function mes(){
 		complete:function(){
 			$("#list").show();
   	    	mes_cloud($("#list"));
-  	    	
   	    	$(".second").pageslide({direction: "left"});
 
   	    } 
 	});
+}
+/*sort messages*/
+function sort(){
+	$(".tab").children("div").hover(function(){
+		$(this).stop().animate({height:"50px"});
+	},function(){
+		$(this).stop().animate({height:"10px"});
+	})
+	.click(function(){
+		var sort=$(this).attr("class");
+		if(sort!="all"){
+			$.ajax({
+		        url:'layout/sort.php', 
+		        dataType:'html',
+		        type: "POST",
+		        data: ({sort:sort}),
+		        success:function(data) {			
+					$("#list").html(data);	
+		  		},
+				complete:function(){
+		  	    	mes_cloud($("#list"));
+		  	    	$(".second").pageslide({direction: "left"});
+		  	    } 
+			});
+		}else mes();
+	});
+
 }
 
 $(function(){
@@ -104,6 +130,7 @@ $(function(){
 	pageslide();
 /*get messages*/
 	mes();
+	sort();
 /*send message*/
 $(".submit").click(function(){
 	var name=prompt("你哪位？","name");
@@ -113,9 +140,11 @@ $(".submit").click(function(){
 		$.ajax({
 			url:'layout/save.php', 
 			type: "POST",
-			data: "tid="+tid+"&words="+word+"&sort=words&name="+name,
+			data: ({tid:tid,words:word,sort:"words",name:name}),
 			success: function(){
+				mes();
 				alert( "已吐");
+				$("#pageslide textarea").val("");
 			} 
 		});
 	}

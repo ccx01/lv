@@ -30,7 +30,7 @@ default:
   $sort="words";
 }
 // the random record ,for the efficiency of MYSQL
-$sql="SELECT * FROM wtow where sort='video'";
+$sql="SELECT * FROM wtow where sort='".$sort."'";
 $result = mysql_query($sql);
 $max=mysql_num_rows($result)-1;
 $rand=rand(0,$max);

@@ -15,7 +15,7 @@
 	display: none;
 }
 .mes_clouds{
-	margin:50px auto;
+	margin:10px auto;
 	width:600px;
 }
 #list{
@@ -50,6 +50,22 @@
 .mes_clouds a div p{
 	margin: 0;
 }
+/*list->sort*/
+.tab{
+	width:500px;
+	height:10px;
+	margin:50px auto;
+}
+.tab div{
+	width:50px;
+	height:10px;
+	float: left;
+}
+.all{
+	background-color:#c0f;
+	border: 1px solid #c0f;	
+}
+
 /*div in the list*/
 .words{
 	background-color:#fff;
@@ -65,6 +81,7 @@
 .article{
 	background-color:#60f;
 	color: #fff;
+	border: 1px solid #60f;
 }
 .article span{
 	color: #cff;
@@ -75,6 +92,7 @@
 .video{
 	background-color:#fc0;
 	color: #fff;
+	border: 1px solid #fc0;
 }
 .video span{
 	color: #369;
@@ -85,6 +103,7 @@
 .game{
 	background-color:#000;
 	color: #fff;
+	border: 1px solid #000;
 }
 .game span{
 	color: #9c0;
