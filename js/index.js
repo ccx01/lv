@@ -12,7 +12,6 @@
 	}).mousemove(function(e){
 		speed = 0.1-(e.clientY - t) /  h * 0.2;
 		speed = speed < 0.02 && speed > -0.02 ? 0 : speed;
-		// $(".load_mes").html("over");
 	}).mouseleave(function(){
 		stop=setInterval(leave,200);
 	});
@@ -41,7 +40,6 @@
 			c = $(m).width() / 2;
 			left = (box.width()/2) * x / 100 - c;
 			$(m).css({
-				// "font-size":size,
 				"opacity":(size-6)/8,
 				"z-index":size,
 				"left":left,
@@ -49,24 +47,23 @@
 			})
 		}
 		offset += speed;
-		// $(".load_mes").html(c+" "+size);
 	}
 /*mouseleave*/
 	function leave(){
 		if(speed>0){
-		speed-=0.01;
-		if(speed<0){
-			clearInterval(r);
-			clearInterval(stop);
-			speed=0;
-		};
+			speed-=0.01;
+			if(speed<0){
+				clearInterval(r);
+				clearInterval(stop);
+				speed=0;
+			}
 		}else if(speed<0){
-		speed+=0.01;
-		if(speed>0){
-			speed=0;
-			clearInterval(r);
-			clearInterval(stop);
-		};	
+			speed+=0.01;
+			if(speed>0){
+				speed=0;
+				clearInterval(r);
+				clearInterval(stop);
+			}	
 		}else{
 			clearInterval(r);
 			clearInterval(stop);	
@@ -78,7 +75,7 @@
 /*get messages*/
 function mes(){
 	$.ajax({
-        url:'layout/mes.php', 
+        url:'mes/mes.php', 
         dataType:'html',     
         success:function(data) {			
 			$("#list").html(data);	
@@ -86,7 +83,7 @@ function mes(){
 		complete:function(){
 			$("#list").show();
   	    	mes_cloud($("#list"));
-  	    	$(".second").pageslide({direction: "left"});
+  	    	$(".second").pageslide({direction: "left",modal: true});
 
   	    } 
 	});
@@ -102,7 +99,7 @@ function sort(){
 		var sort=$(this).attr("class");
 		if(sort!="all"){
 			$.ajax({
-		        url:'layout/sort.php', 
+		        url:'mes/sort.php', 
 		        dataType:'html',
 		        type: "POST",
 		        data: ({sort:sort}),
@@ -111,12 +108,11 @@ function sort(){
 		  		},
 				complete:function(){
 		  	    	mes_cloud($("#list"));
-		  	    	$(".second").pageslide({direction: "left"});
+		  	    	$(".second").pageslide({direction: "left",modal: true});
 		  	    } 
 			});
 		}else mes();
 	});
-
 }
 
 $(function(){
@@ -132,22 +128,22 @@ $(function(){
 	mes();
 	sort();
 /*send message*/
-$(".submit").click(function(){
-	var name=prompt("你哪位？","name");
-	if(name){
-		var tid=$(".reply").attr("alt");
-		var word=$("#pageslide textarea").val();
-		$.ajax({
-			url:'layout/save.php', 
-			type: "POST",
-			data: ({tid:tid,words:word,sort:"words",name:name}),
-			success: function(){
-				mes();
-				alert( "已吐");
-				$("#pageslide textarea").val("");
-			} 
-		});
-	}
-});
+	$(".submit").click(function(){
+		var name=prompt("你哪位？","name");
+		if(name){
+			var tid=$(".reply").attr("alt");
+			var word=$("#pageslide textarea").val();
+			$.ajax({
+				url:'mes/save.php', 
+				type: "POST",
+				data: ({tid:tid,words:word,sort:"words",name:name}),
+				success: function(){
+					mes();
+					alert( "已吐");
+					$("#pageslide textarea").val("");
+				} 
+			});
+		}
+	});
 
 });
