@@ -10,10 +10,11 @@
 	box.mouseenter(function(){
 		r=setInterval(rotate,30);
 	}).mousemove(function(e){
-		speed = 0.1-(e.clientY - t) /  h * 0.2;
-		speed = speed < 0.02 && speed > -0.02 ? 0 : speed;
+		speed = 0.05-(e.clientY - t) /  h * 0.1;
+		speed = speed < 0.03 && speed > -0.03 ? 0 : speed;
 	}).mouseleave(function(){
 		stop=setInterval(leave,200);
+		$(".load_mes").fadeOut();
 	});
 /*the content showed in the newpage*/
 	item.each(function(){
