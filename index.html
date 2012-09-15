@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name ="keywords" content="ccx01,sign,the day of sign,signXday,沙因,砂音,游戏">
 	<meta name="description" content="just for fun,及时行乐">
@@ -9,10 +9,13 @@
 
 	<link type="text/css" rel="stylesheet" href="css/jquery.pageslide.css" />
 	<link type="text/css" rel="stylesheet" href="css/index.css" />
+	<link type="text/css" rel="stylesheet" href="css/scrollbar.css" />
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.pageslide.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/3DEngine.js"></script>
+	<script type="text/javascript" src="js/Sphere.js" ></script>
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
@@ -26,17 +29,66 @@
 	  })();
 
 	</script>
+
 </head>
 <body>
-	<div class="load_mes"></div>
-	<div class="tab">
+
+<div class="alert_mes"></div>
+<div class="load_mes"></div>
+
+<div class="tab">
+	<a href="#modal" class="panel"><div class="words"><p>WORDS</p></div></a>
+	<a href="#modal" class="panel"><div class="video"><p>VIDEO</p></div></a>
+	<a href="#modal" class="panel"><div class="article"><p>ABOUT</p></div></a>
+	<a href="#modal" class="panel"><div class="game"><p>GAME</p></div></a>
+	<a href="#modal" class="panel"><div class="all"><p>ALL</p></div></a>
+</div>
+<div id="modal" style="display:none">
+    <a href="javascript:$.pageslide.close()" class="close">Close</a>
+    <div id="list">
+    </div>
+</div>
+
+	<div class="mes_clouds">
+		<ul id="item">
+			<li><img src="images/1.jpg"/>
+				<div class="hide">
+					<div class="content"><h4>title</h4>
+					<span>sign 2012-07-31 14:00:14</span>
+					<p class="con">This slide uses "modal" option set to "true". When using a modal pageslide, clicking on the main window will not close the window. You must explicitly call <code>$.pageslide.close()</code>.</p>
+					</div>
+				</div>
+			</li>
+			<li><img src="images/2.jpg"/>
+				<div class="hide">
+					<div class="content"><h4>title</h4>
+					<span>sign 2012-07-31 14:00:14</span>
+					<p class="con"><embed src="http://www.tudou.com/v/NW9Ck1kUSrU/&amp;resourceId=0_05_02_99/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="480" height="400"></p>
+					</div>
+				</div>
+			</li>
+			<li><img src="images/3.jpg"/></li>
+			<li><img src="images/4.jpg"/></li>
+			<li><img src="images/5.jpg"/></li>
+			<li><img src="images/6.jpg"/></li>
+			<li><img src="images/7.jpg"/></li>
+			<li><img src="images/8.jpg"/></li>
+			<li><img src="images/9.jpg"/></li>
+			<li><img src="images/10.jpg"/></li>
+			<li><img src="images/11.jpg"/></li>
+		</ul>
+	</div>
+	<div class="shelter"></div>
+	
+
+<!--	<div class="tab">
 		<div class="words"><p>WORDS</p></div>
 		<div class="video"><p>VIDEO</p></div>
 		<div class="article"><p>ABOUT</p></div>
 		<div class="game"><p>GAME</p></div>
 		<div class="all"><p>ALL</p></div>
 	</div>
-	<div class="mes_clouds">
+ 	<div class="mes_clouds">
 		<div id="list">
 			<a  href="#modal" class="second"><div>default page</div></a>
 			<a  href="#modal" class="second"><div>in case js can't be loaded</div></a>
@@ -58,7 +110,7 @@
 				<a class="submit">吐槽<br/>KUSO</a>
 			</div>
         </div>
-	</div>
+	</div> -->
 	
 </body>
 </html>

@@ -1,4 +1,8 @@
-.load_mes{
+body{
+	overflow: hidden;
+	margin:0;
+}
+.load_mes,.alert_mes{
 	position: absolute;
 	z-index: 9999;
 	left: 40%;
@@ -14,66 +18,102 @@
 	text-align:center;
 	display: none;
 }
-.mes_clouds{
-	margin:10px auto;
-	width:600px;
+.hide{
+	display: none;
 }
-#list{
-	width:100%;
-	height:500px;
-	position:relative;
-	display:none;
-}
-.mes_clouds a{
-	position:absolute;
-	text-decoration:none;
-}
-.mes_clouds a div{
-	min-width: 180px;
-	max-width: 500px;
-	min-height: 30px;
-	max-height: 110px;
-	padding: 5px 15px;
-	overflow:hidden;
+.pop{
+	position: absolute;
+	z-index: 999;
+	max-width: 0;
+	max-height: 0;
+	border: 1px solid #ccc;
 	border-radius: 10px;
-	font-size: 14px;
-	line-height: 2em;
 	font-family:'microsoft yahei';
+	box-shadow: 2px 2px 6px #aaa;
+	display: none;	
+	/*-webkit-filter: blur(2px);*/
 }
-.mes_clouds a div:hover{
-	box-shadow: 2px 2px 6px #aaa;	
-	text-shadow:1px 1px 2px #ccc;
+.pop .close{
+	display: none;
+	width: 20px;
+	height: 20px;
+	background: #9fa;
+	border-radius: 30px;
+	border: 1px solid #CCC;
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	box-shadow: 0 0 15px #AAA;
 }
-.mes_clouds a div span{
-	float:right;
-}
-.mes_clouds a div p{
-	margin: 0;
-}
-/*list->sort*/
-.tab{
-	width:500px;
-	height:10px;
-	margin:50px auto;
+.pop .close:hover{
+	background: #f33;
 	cursor: pointer;
 }
-.tab div{
-	width:50px;
-	height:10px;
-	float: left;
+.pop .content{
+	padding: 10px;
+}
+.active{
 	overflow: hidden;
 }
-.tab div p{
-	text-align: center;
-	margin:10px 0;
-	font:bolder 12px Arial;
+.draggable{
+	z-index: 1000;
+	/*-webkit-filter: none;*/
+	cursor: move;
 }
-.all{
-	background-color:#c0f;
-	border: 1px solid #c0f;	
+.mes_clouds{
+	margin:10px auto;
+	width:960px;
+	height:700px;
+}
+.shelter{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+#item{
+	width:1px;
+	height:1px;
+	top:300px;
+	margin:0 auto;
+	position:relative;
+	list-style-type: none;
+	display: none;
+}
+#item li{
+	line-height: 0;
+	border-radius: 50px;
+	border:2px #ccc solid;	
+	cursor: help;
+}
+#item img{
+	width:100px;
+	border-radius: 50px;
 }
 
 /*div in the list*/
+.tab{
+	cursor: pointer;
+	position: absolute;
+	z-index: 99;
+}
+.tab .panel{
+	text-decoration: none;
+}
+.tab .panel div{
+	width: 15px;
+	overflow: hidden;
+	text-align:right;
+	font: bolder 14px/14px "microsoft yahei";
+	letter-spacing: 5px;
+}
+.all{
+	background-color:#fff;
+	color: #fff;
+	border: 1px solid #fff;	
+}
 .words{
 	background-color:#fff;
 	color: #666;
@@ -118,16 +158,16 @@
 .game .name{
 	color: #f90;
 }
-.other{
-	display:none;
-}
+/*.other{
+	margin: 20px 20px 0px;
+}*/
 
 /*new page modal*/
 #modal{ 
 	display: none;
+	text-decoration: none;
 }
-#modal a{
-	float: right;
+#modal .close,.submit{
 	text-decoration:none;
 	background: #CCC;
 	color: #333;
@@ -135,18 +175,32 @@
 	border: none; 
 	font-family:'microsoft yahei';
 }
-#modal a:hover{ 
+#modal .close:hover,.submit:hover{ 
 	background: #aaa; 
 	color: #fff;
-} 
-.reply{
-	height: 100px;
-	margin:10px 0;
-	padding: 5px;
-	border: 1px solid #ccc;
 }
-.reply textarea{
-	width:480px;
-	height:90px;
+#modal .words,#modal .article,#modal .game,#modal .video,#modal .all{
+	width: 93%;
+	max-height: 50px;
+	border-radius: 10px;
+	-webkit-filter: blur(2px);
+	margin: 10px 0;
+	overflow: hidden;
+	padding: 10px;
+} 
+
+.pop textarea{
+	width: 99%;
+	min-width: 397px;
+	margin-top: 10px;
+	height: 75px;
+}
+.submit{
+	position: absolute;
+	right: 15px;
+	margin-top: -60px;
+	width: 35px;
+	display: block;
+	cursor: pointer;
 }
 /*end*/
