@@ -48,7 +48,7 @@ function save(){
 		if(name)
 		if(name!="name"&&name.trim()!=""){
 			var tid=$(this).attr("rel");
-			var word=$("#pageslide textarea").val();
+			var word=$(this).prev("textarea").val();
 			$.ajax({
 				url:'mes/save.php', 
 				type: "POST",
@@ -68,7 +68,7 @@ function save(){
 }
 
 $(function(){
-	// $('body').on('contextmenu', function() { return false; });
+	$('body').on('contextmenu', function() { return false; });
 /*global loading*/
 	$(".load_mes").ajaxStart(function(){
 	   $(this).html("loading").fadeIn();
