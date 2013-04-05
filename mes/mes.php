@@ -10,7 +10,7 @@ while($row = mysql_fetch_array($result))
 {
 	echo '<li><img src="images/'.rand(1,11).'.jpg"/>
 				<div class="hide">
-					<div class="content">
+					<div>
 					<h4>'.$row["words"].'</h4>
 					<span>'.$row["name"].' '.$row["time"].'</span>
 					<p>'.$row["other"].'</p>

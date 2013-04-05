@@ -48,6 +48,7 @@ function save(){
 		if(name)
 		if(name!="name"&&name.trim()!=""){
 			var tid=$(this).attr("rel");
+			console.log(tid);
 			var word=$(this).prev("textarea").val();
 			$.ajax({
 				url:'mes/save.php', 
@@ -68,7 +69,7 @@ function save(){
 }
 
 $(function(){
-	$('body').on('contextmenu', function() { return false; });
+	// $('body').on('contextmenu', function() { return false; });
 /*global loading*/
 	$(".load_mes").ajaxStart(function(){
 	   $(this).html("loading").fadeIn();
@@ -83,7 +84,7 @@ $(function(){
 	pageslide();
 	$(".panel").pageslide({modal: true});
 /*get messages*/
-	mes();  //show in the ball
+	//mes();  //show in the ball
 	showsort();   //show in the slide
 /*send message*/
 	save();

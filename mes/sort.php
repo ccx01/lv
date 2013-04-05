@@ -13,9 +13,9 @@ if($sort=="all"){
 				<p class="name">'.$row["name"].'</p>
 				<p class="word">'.$row["words"].'</p>
 				<div class="hide">
-					<div class="content">'.$row["other"]
+					<div>'.$row["other"]
 					.'<textarea></textarea>
-					<a class="submit" rel="'.$row["tid"].'">吐槽<br/>kuso</a>
+					<a class="submit" rel="'.$row["id"].'">吐槽<br/>kuso</a>
 					</div>
 				</div>
 			  </div>';
@@ -52,9 +52,9 @@ if($sort=="all"){
 				<p class="name">'.$row["name"].'</p>
 				<p class="word">'.$row["words"].'</p>
 				<div class="hide">
-					<div class="content">'.$row["other"]
+					<div>'.$row["other"]
 					.'<textarea></textarea>
-					<a class="submit" rel="'.$row["tid"].'">吐槽<br/>kuso</a>
+					<a class="submit" rel="'.$row["id"].'">吐槽<br/>kuso</a>
 					</div>
 				</div>
 			  </div>';
@@ -70,7 +70,7 @@ if($sort=="all"){
 				<p class="name">'.$row["name"].'</p>
 				<p class="word">'.$row["words"].'</p>
 				<div class="hide">
-					<div class="content">'.$row["other"]
+					<div>'.$row["other"]
 					.'<textarea></textarea>
 					<a class="submit" rel="'.$row["tid"].'">吐槽<br/>kuso</a>
 					</div>

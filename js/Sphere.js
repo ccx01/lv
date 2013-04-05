@@ -51,7 +51,7 @@ function pop($this,e){     //pop up
 
 	/*create the message*/
 	$("body").append('<div class="pop active draggable"></div>');
-	$(".active").html($this.children(".hide").html());
+	$(".active").html('<div class="content">'+$this.html()+"</div>");
 	$(".active").not(":animated").css({
 		left:e.clientX,
 		top:e.clientY
@@ -60,7 +60,7 @@ function pop($this,e){     //pop up
 		maxWidth:"500px"
 	})
 	.animate({
-		maxHeight:"600px"
+		maxHeight:"1600px"
 	},function(){
 		$(this).removeClass("active").prepend('<a class="close"></a>');
 		$(".close").click(function(){
@@ -130,10 +130,10 @@ function sphere(){
 	},function(){
 		$(this).css({"border-color":"#ccc"});
 	}).click(function(e){		//show the message
-		$(this).find("img").css({"-webkit-filter": "blur(2px)"})
+		/*$(this).find("img").css({"-webkit-filter": "blur(2px)"})
 		.animate({width:"101px"},200,function(){
 			$(this).css({"-webkit-filter": "none","width":"100px"});
-		});
+		});*/
 		pop($(this),e);
 
 	});		

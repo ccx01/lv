@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name ="keywords" content="ccx01,sign,the day of sign,signXday,沙因,游戏">
+	<meta name="description" content="just for fun,及时行乐">
+
+	<title>the day of sign</title>
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+
+	<style type="text/css">
+		*{-webkit-transition:all 0.8s ease-out;box-sizing: border-box;}
+		body{
+			background: #111;
+			-webkit-perspective: 500;	
+		}
+		#world{
+
+		}
+		#stage{
+			width: 960px;
+			height:600px;
+			border: 1px solid #fff;
+			margin: 0 auto;
+			/*overflow: hidden; will trouble the child transform*/
+			-webkit-transform-style: preserve-3d;
+		}
+
+		.arrow{
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			position: relative;
+			-webkit-transform: rotateZ(0deg) scale(.5);
+			background: -webkit-gradient(radial, 50% 50%, 20, 50% 50%, 80, from(rgba(127, 127, 127, 0)), color-stop(0.3, rgba(127, 127, 127, 0.2)),  to(transparent));
+		}
+		.arrow:hover{
+			-webkit-transform: rotateZ(360deg) scale(.8);
+		}
+		.arrow>div{
+			width: 10%;
+			height: 10%;
+			border-radius: 100%;
+			position: absolute;
+			top: 45%;
+			left: 45%;
+		}
+		.top{
+			background: -webkit-gradient(radial, 50% 50%, 16, 50% 50%, 20, from(rgba(0, 127, 127, 0.6)), color-stop(0.5, rgba(0, 256, 256, 0.75)),  to(transparent));
+		}
+		.arrow:hover .top{
+			top:10%;
+		}
+		.right{
+			background: -webkit-gradient(radial, 50% 50%, 16, 50% 50%, 20, from(rgba(127, 127, 0, 0.6)), color-stop(0.5, rgba(256, 256, 0, 0.75)), to(transparent));
+		}
+		.arrow:hover .right{
+			left:80%;
+		}
+		.bottom{
+			background: -webkit-gradient(radial, 50% 50%, 16, 50% 50%, 20, from(rgba(32, 127, 32, 0.6)), color-stop(0.5, rgba(64, 256, 64, 0.75)),  to(transparent));
+		}
+		.arrow:hover .bottom{
+			top:80%;
+		}
+		.left{
+			background: -webkit-gradient(radial, 50% 50%, 16, 50% 50%, 20, from(rgba(127, 0, 127, 0.6)), color-stop(0.5, rgba(256, 0, 256, 0.75)), to(transparent));
+		}
+		.arrow:hover .left{
+			left:10%;
+		}	
+		.box {
+			width: 300px;
+			height: 500px;
+			background: rgba(256, 0, 256, 0.25);
+			border: rgba(256, 0, 256, 1) 1px solid;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.box > div {
+			width: 280px;
+			height: 90px;
+			margin: 10px;
+			border: rgba(256, 0, 256, 1) 1px solid;
+		}
+
+		.chip {
+			-webkit-transform: translateZ(0px);
+			-webkit-transform-style: preserve-3d;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.mes{
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			border: 5px solid #fff;
+			opacity: 0.6;
+			background: #ccc;
+		}
+		.test{
+			width: 300px;
+			height: 300px;
+			position: absolute;
+			top: 100px;
+			left: 500px;
+			border: 5px solid #fff;
+			opacity: 0.6;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="stage">
+
+	<div class="arrow">
+		<div class="top"></div>
+		<div class="right"></div>
+		<div class="bottom"></div>
+		<div class="left"></div>
+	</div>
+
+	<div class="box">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+
+	<div class="chip">
+			<div class="mes" style="-webkit-transform:translateZ(100px);"></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(-2220px);"></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(-500px);"></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(300px);"></div>
+		  	<div class="align mes" style=""></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(-5000px);"></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(1110px);"></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(-200px);"></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(-1130px);"></div>
+	</div>
+
+	</div>
+
+  	<div id="testPerspective" style="display: none;">
+	  	<div class="test" style="-webkit-transform: rotateY(90deg);-webkit-transform-origin: 100% 50%;"></div>
+	  	<div class="test" style="-webkit-transform: rotateY(-90deg);-webkit-transform-origin: 0% 100%;"></div>
+	  	<div class="test" style="-webkit-transform: rotateX(90deg);-webkit-transform-origin: 50% 0%;"></div>
+	  	<div class="test" style="-webkit-transform: rotateX(-90deg);-webkit-transform-origin: 50% 100%;"></div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+	$(window).keydown(function(event){
+		switch (event.which) {
+		case(74): //J键
+		//要执行的操作
+		break;
+		case(75)://K键
+		//要执行的操作
+		break;
+		case(72)://H键
+		//要执行的操作
+		break;
+		case(76)://L键
+		//要执行的操作
+		break;
+		}
+	});
+</script>

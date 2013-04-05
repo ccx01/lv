@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+#dolo{
+	width: 260px;
+	height: 260px;
+	margin: 0 auto;
+	margin-top: 130px;
+	position: relative;
+	display:block;
+}
+#shadow{
+	position: absolute;
+	z-index: -1;
+}
+.head{
+position: absolute;
+top: 65px;
+left: 82px;
+width: 122px;
+height: 77px;
+border-top-left-radius: 140px 210px;
+border-top-right-radius: 140px 210px;
+border-bottom-left-radius: 250px 121px;
+border-bottom-right-radius: 428px 216px;
+background: #5494a1;
+}
+#shadow .head{
+top: 62px;
+left: 78px;
+width: 128px;
+height: 83px;
+background: #092c54;
+}
+.ear .left{
+width: 10px;
+height: 10px;
+top: -32px;
+left: 6px;
+position: absolute;
+border: 50px solid transparent;
+border-bottom-width: 35px;
+border-right-width: 0px;
+border-left: 55px solid #5494a1;
+-webkit-transform: rotate(10deg);
+}
+#shadow .ear .left{
+top: -39px;
+left: 7px;
+border: 55px solid transparent;
+border-bottom-width: 35px;
+border-right-width: 0px;
+border-left: 59px solid rgb(9, 44, 84);
+}
+.ear .right{
+width: 10px;
+height: 10px;
+top: -46px;
+left: 57px;
+position: absolute;
+border: 64px solid transparent;
+border-bottom-width: 20px;
+border-left-width: 0px;
+border-right: 52px solid #5494a1;
+-webkit-transform: rotate(-4deg);
+}
+#shadow .ear .right{
+top: -53px;
+left: 59px;
+border: 70px solid transparent;
+border-bottom-width: 20px;
+border-left-width: 0px;
+border-right: 57px solid rgb(9, 44, 84);
+}
+.beard .left1 {
+width: 0px;
+height: 0px;
+top: 35px;
+left: -40px;
+position: absolute;
+border: 7px solid transparent;
+border-bottom-width: 7px;
+border-left-width: 0px;
+border-right: 52px solid #5494a1;
+-webkit-transform: rotate(5deg);
+}
+#shadow .beard .left1 {
+width: 5px;
+height: 5px;
+top: 32px;
+left: -45px;
+border: 10px solid transparent;
+border-bottom-width: 10px;
+border-left-width: 0px;
+border-right: 58px solid rgb(9, 44, 84);
+}
+.beard .left2 {
+width: 0px;
+height: 0px;
+top: 49px;
+left: -65px;
+position: absolute;
+border: 10px solid transparent;
+border-bottom-width: 12px;
+border-left-width: 0px;
+border-right: 80px solid #5494a1;
+-webkit-transform: rotate(-6deg);
+}
+#shadow .beard .left2 {
+width: 5px;
+height: 5px;
+top: 50px;
+left: -76px;
+border: 10px solid transparent;
+border-bottom-width: 15px;
+border-left-width: 0px;
+border-right: 88px solid rgb(9, 44, 84);
+}
+.beard .left3 {
+width: 0px;
+height: 0px;
+top: 65px;
+left: -28px;
+position: absolute;
+border: 7px solid transparent;
+border-bottom-width: 8px;
+border-left-width: 0px;
+border-right: 52px solid #5494a1;
+-webkit-transform: rotate(-10deg);
+}
+#shadow .beard .left3 {
+width: 5px;
+height: 5px;
+top: 62px;
+left: -38px;
+border: 9px solid transparent;
+border-bottom-width: 14px;
+border-left-width: 0px;
+border-right: 90px solid rgb(9, 44, 84);
+}
+.beard .right1 {
+width: 0px;
+height: 0px;
+top: 37px;
+left: 91px;
+position: absolute;
+border: 10px solid transparent;
+border-bottom-width: 13px;
+border-right-width: 0px;
+border-left: 61px solid #5494a1;
+-webkit-transform: rotate(8deg);
+}
+#shadow .beard .right1 {
+width: 5px;
+height: 5px;
+top: 36px;
+left: 91px;
+border: 12px solid transparent;
+border-bottom-width: 13px;
+border-right-width: 0px;
+border-left: 74px solid rgb(9, 44, 84);
+}
+.beard .right2 {
+width: 0px;
+height: 0px;
+top: 49px;
+left: 91px;
+position: absolute;
+border: 10px solid transparent;
+border-bottom-width: 12px;
+border-right-width: 0px;
+border-left: 80px solid #5494a1;
+-webkit-transform: rotate(11deg);
+}
+#shadow .beard .right2 {
+width: 5px;
+height: 5px;
+top: 49px;
+left: 96px;
+border: 12px solid transparent;
+border-bottom-width: 16px;
+border-right-width: 0px;
+border-left: 85px solid rgb(9, 44, 84);
+}
+.beard .right3 {
+width: 0px;
+height: 0px;
+top: 61px;
+left: 73px;
+position: absolute;
+border: 7px solid transparent;
+border-bottom-width: 13px;
+border-right-width: 0px;
+border-left: 57px solid #5494a1;
+-webkit-transform: rotate(12deg);
+}
+#shadow .beard .right3 {
+width: 5px;
+height: 5px;
+top: 58px;
+left: 66px;
+border: 10px solid transparent;
+border-bottom-width: 19px;
+border-right-width: 0px;
+border-left: 72px solid rgb(9, 44, 84);
+}
+.eye .left1{
+position: absolute;
+width: 63px;
+height: 20px;
+top: 16px;
+left: -21px;
+border-top: 5px solid #092c54;
+border-top-left-radius: 200px 100px;
+border-top-right-radius: 200px 100px;
+-webkit-transform: rotate(15deg);
+}
+.eye .left2{
+position: absolute;
+width: 63px;
+height: 20px;
+top: 22px;
+left: -21px;
+border-top: 5px solid #092c54;
+border-top-left-radius: 200px 100px;
+border-top-right-radius: 200px 100px;
+-webkit-transform: rotate(6deg);
+}
+.eye .right1{
+position: absolute;
+width: 63px;
+height: 20px;
+top: 16px;
+left: 78px;
+border-top: 5px solid #092c54;
+border-top-left-radius: 200px 100px;
+border-top-right-radius: 200px 100px;
+-webkit-transform: rotate(-15deg);
+}
+.eye .right2{
+position: absolute;
+width: 63px;
+height: 83px;
+top: 23px;
+left: 79px;
+border-top: 5px solid #092c54;
+border-top-left-radius: 200px 100px;
+border-top-right-radius: 200px 100px;
+-webkit-transform: rotate(-5deg);
+}
+.body{
+width: 36px;
+height: 10px;
+top: 125px;
+left: 85px;
+position: absolute;
+border: 32px solid transparent;
+border-left-width: 35px;
+border-top-width: 0px;
+border-bottom: 76px solid #5494a1;
+}
+#shadow .body{
+width: 45px;
+height: 10px;
+top: 126px;
+left: 78px;
+border: 33px solid transparent;
+border-left-width: 38px;
+border-top-width: 0px;
+border-bottom: 79px solid #092c54;
+}
+</style>
+	</head>
+	<body>
+		<a id="dolo">
+			<div class="head">
+				<div class="ear">
+					<div class="left"></div>
+					<div class="right"></div>					
+				</div>
+				<div class="eye">
+					<div class="left1"></div>
+					<div class="left2"></div>					
+					<div class="right1"></div>
+					<div class="right2"></div>
+				</div>
+				<div class="beard">
+					<div class="left1"></div>
+					<div class="left2"></div>
+					<div class="left3"></div>					
+					<div class="right1"></div>
+					<div class="right2"></div>
+					<div class="right3"></div>	
+				</div>
+			</div>
+			<div class="body">
+			</div>
+			<div class="headset">
+			</div>
+		<div id="shadow">
+			<div class="head">
+				<div class="ear">
+					<div class="left"></div>
+					<div class="right"></div>					
+				</div>
+				<div class="beard">
+					<div class="left1"></div>
+					<div class="left2"></div>
+					<div class="left3"></div>					
+					<div class="right1"></div>
+					<div class="right2"></div>
+					<div class="right3"></div>	
+				</div>
+			</div>
+			<div class="body">
+			</div>
+			<div class="headset">
+			</div>
+		</div>
+		</a>
+
+	</body></html>

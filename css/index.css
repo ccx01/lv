@@ -21,6 +21,9 @@ body{
 .hide{
 	display: none;
 }
+.pop .hide{
+	display: block;
+}
 .pop{
 	position: absolute;
 	z-index: 999;
