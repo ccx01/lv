@@ -1,58 +1,50 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<head> 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name ="keywords" content="ccx01,sign,the day of sign,signXday,沙因,砂音,游戏">
-	<meta name="description" content="just for fun,及时行乐">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name ="keywords" content="ccx01,sign,the day of sign,signXday,沙因,游戏">
+    <meta name="description" content="just for fun,及时行乐">
+    
+    <title>the day of sign</title>
 
-	<title>the day of sign</title>
-
-	<link type="text/css" rel="stylesheet" href="css/jquery.pageslide.css" />
 	<link type="text/css" rel="stylesheet" href="css/index.css" />
 	<link type="text/css" rel="stylesheet" href="css/scrollbar.css" />
-
+	
 	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.pageslide.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
-	<script type="text/javascript" src="js/3DEngine.js"></script>
-	<script type="text/javascript" src="js/Sphere.js" ></script>
-	<script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-21979313-1']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
 
 </head>
 <body>
-
-<div class="alert_mes"></div>
-<div class="load_mes"></div>
-
-<div class="tab">
-	<a href="#modal" class="panel" style="display: none;"><div class="words"><p>WORDS</p></div></a>
-	<a href="#modal" class="panel"><div class="video"><p>VIDEO</p></div></a>
-	<a href="#modal" class="panel"><div class="article"><p>ABOUT</p></div></a>
-	<a href="#modal" class="panel"><div class="game"><p>GAME</p></div></a>
-	<a href="#modal" class="panel"><div class="all"><p>RANDOM</p></div></a>
-</div>
-<div id="modal" style="display:none">
-    <a href="javascript:$.pageslide.close()" class="close">Close</a>
-    <div id="list">
-    </div>
-</div>
-
-	<div style="position: absolute;top: 49%;left: 49%;">
-		你好，我是Sign。
+<div id='curtain'></div>
+<div id="ball"></div>
+<div class='search'>
+	<div class="tip">
+		<div class="close c3"></div>
 	</div>
-	<div class="shelter"></div>
+	<div class="content">
+		<input class="keyword" />
+		<span class="submit">submit</span>
+	</div>
+</div>
+
+<div id="list">
+	<div class="tip">
+		<div class="close c1"></div>
+		<div class="video"></div>
+		<div class="game"></div>
+		<div class="words"></div>
+	</div>
+	<ul class="content">
+	</ul>
+</div>
+
+<div id="expand">
+	<div class="tip">
+		<div class="close c2"></div>
+	</div>
+	<ul class="content">
+	</ul>
+</div>
 
 </body>
 </html>

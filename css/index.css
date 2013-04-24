@@ -1,209 +1,210 @@
-body{
-	overflow: hidden;
+body {
+	font-family: 'microsoft yahei';
+	box-sizing: border-box;
 	margin:0;
-}
-.load_mes,.alert_mes{
-	position: absolute;
-	z-index: 9999;
-	left: 40%;
-	top:40%;
-	width: 200px;
-	height: 50px;
-	padding: 20px 10px 0 10px;
-	overflow:hidden;
-	border: 1px solid #ccc;
-	border-radius: 10px;
-	font-family:'microsoft yahei';
-	box-shadow: 2px 2px 6px #aaa;
-	text-align:center;
-	display: none;
-}
-.hide{
-	display: none;
-}
-.pop .hide{
-	display: block;
-}
-.pop{
-	position: absolute;
-	z-index: 999;
-	max-width: 0;
-	max-height: 0;
-	border: 1px solid #ccc;
-	border-radius: 10px;
-	font-family:'microsoft yahei';
-	box-shadow: 2px 2px 6px #aaa;
-	display: none;	
-	/*-webkit-filter: blur(2px);*/
-}
-.pop .close{
-	display: none;
-	width: 20px;
-	height: 20px;
-	background: #9fa;
-	border-radius: 30px;
-	border: 1px solid #CCC;
-	position: absolute;
-	top: -10px;
-	left: -10px;
-	box-shadow: 0 0 15px #AAA;
-}
-.pop .close:hover{
-	background: #f33;
-	cursor: pointer;
-}
-.pop .content{
-	padding: 10px;
-}
-.active{
 	overflow: hidden;
 }
-.draggable{
-	z-index: 1000;
-	/*-webkit-filter: none;*/
-	cursor: move;
+#curtain{
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:999;
+	display: none;
 }
-.mes_clouds{
-	margin:10px auto;
-	width:960px;
-	height:700px;
+
+/* drop */
+.drop{
+	box-sizing: border-box;	
 }
-.shelter{
-	position: absolute;
-	top: 0;
-	left: 0;
+.tip .close.drop {
+	background: rgba(231, 24, 115, .6);
+	border: 1px solid rgba(231, 24, 115, .6);
+}
+.tip .video.drop {			
+	background: rgba(251, 186, 0, .6);
+	border: 1px solid rgba(251, 186, 0, .6);
+}
+.tip .game.drop {
+	background: rgba(0, 153, 204, .6);
+	border: 1px solid rgba(0, 153, 204, .6);
+}
+.tip .words.drop {
+	background: rgba(153, 204, 0, .6);
+	border: 1px solid rgba(153, 204, 0, .6);
+}
+/* article list */
+.tip {
 	width: 100%;
 	height: 100%;
-	z-index: 0;
-}
-#item{
-	width:1px;
-	height:1px;
-	top:300px;
-	margin:0 auto;
-	position:relative;
-	list-style-type: none;
+	position: absolute;
 	display: none;
 }
-#item li{
-	line-height: 0;
-	border-radius: 50px;
-	border:2px #ccc solid;	
-	cursor: help;
-}
-#item img{
-	width:100px;
-	border-radius: 50px;
-}
-
-/*div in the list*/
-.tab{
-	cursor: pointer;
+.tip .close {
+	width: 100%;
+	height: 100%;
 	position: absolute;
-	z-index: 99;
 }
-.tab .panel{
-	text-decoration: none;
-}
-.tab .panel div{
-	width: 15px;
-	overflow: hidden;
-	text-align:right;
-	font: bolder 14px/14px "microsoft yahei";
-	letter-spacing: 5px;
-}
-.all{
-	background-color:#fff;
-	color: #fff;
-	border: 1px solid #fff;	
-}
-.words{
-	background-color:#fff;
-	color: #666;
-	border: 1px solid #ccc;
-}
-.words span{
-	color: #ccc;
-}
-.words .name{
-	color: #09F;
-}
-.article{
-	background-color:#60f;
-	color: #fff;
-	border: 1px solid #60f;
-}
-.article span{
-	color: #cff;
-}
-.article .name{
-	color: #eee;
-}
-.video{
-	background-color:#fc0;
-	color: #fff;
-	border: 1px solid #fc0;
-}
-.video span{
-	color: #369;
-}
-.video .name{
-	color: #fff;
-}
-.game{
-	background-color:#000;
-	color: #fff;
-	border: 1px solid #000;
-}
-.game span{
-	color: #9c0;
-}
-.game .name{
-	color: #f90;
-}
-/*.other{
-	margin: 20px 20px 0px;
-}*/
-
-/*new page modal*/
-#modal{ 
-	display: none;
-	text-decoration: none;
-}
-#modal .close,.submit{
-	text-decoration:none;
-	background: #CCC;
-	color: #333;
-	padding: 5px 10px; 
-	border: none; 
-	font-family:'microsoft yahei';
-}
-#modal .close:hover,.submit:hover{ 
-	background: #aaa; 
-	color: #fff;
-}
-#modal .words,#modal .article,#modal .game,#modal .video,#modal .all{
-	width: 93%;
-	max-height: 50px;
-	border-radius: 10px;
-	-webkit-filter: blur(2px);
-	margin: 10px 0;
-	overflow: hidden;
-	padding: 10px;
-} 
-
-.pop textarea{
-	width: 99%;
-	min-width: 397px;
-	margin-top: 10px;
-	height: 75px;
-}
-.submit{
+#list,#expand {
+	background: rgba(0, 0, 0, .6);
+	color: white;
+	width: 30%;
 	position: absolute;
-	right: 15px;
-	margin-top: -60px;
-	width: 35px;
+	height: 100%;
+	box-shadow: inset 5px 0px 20px -10px rgba(0, 0, 0, .7);
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+#expand{
+	left:30%;
+	width: 0;
+}
+#expand .tip .close {
+	height: 20%;
+	top: 0;
+}
+#list .tip .close {
+	width: 50%;
+}
+#list .tip .video {
+	width: 50%;
+	height: 50%;
+	left:50%;
+	position: absolute;
+}
+#list .tip .game {
+	width: 50%;
+	height: 25%;
+	left:50%;
+	top:50%;
+	position: absolute;
+}
+#list .tip .words {
+	width: 50%;
+	height: 25%;
+	left:50%;
+	top:75%;
+	position: absolute;
+}
+#list ul,#expand ul {
+	padding: 5px;
+	margin: 0;
+	list-style: none;
+	list-style-image: none;		
+}
+#list li,#expand li {
+	min-height: 42px;
+	min-width: 480px;
 	display: block;
+	margin: 5px;
+	padding: 2px 5px;
+	color: rgb(51, 51, 51);
+	border: 1px solid rgb(255, 255, 255);
+	overflow: hidden;
+	background: rgba(255, 255, 255, .6);
+	opacity: 0;
+}
+.summary {
+	width: 90%;
+	float: left;
+}
+.more {
+	float: right;
+	cursor: pointer;
+	margin: 5px;
+}
+/* article list end */
+
+#ball {
+	float: left;
+	width: 20px;
+	height: 20px;
+	background: rgba(138, 192, 7, 1);
+	color:white;
+	border-radius: 5px;
+	list-style: none;
+	list-style-image: none;
+	position:absolute;
+	z-index:999;
+	/*-webkit-transform:rotate(45deg);*/
+}
+#ball div{
+	padding: 5px 20px;
+	margin: 5px;			
+}
+.dragging{
+	-webkit-animation: operate 0.5s;
+}
+@-webkit-keyframes operate
+{
+	from {
+		-webkit-transform:rotate(0deg);
+	}
+	to {
+		-webkit-transform:rotate(360deg);
+	}
+}
+.drop{
+	background:#f90;
+}
+.search{
+	position:absolute;
+	top:0;
+	left: 100%;
+	width:0px;
+	height:0px;
+	border:1px solid #666;
+	z-index: 99;
+	background: rgba(255, 255, 255, 0.6);
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.search input {
+	width: 350px;
+	height: 20px;
+	display: inline-block;
+}
+.submit {
+	border: 1px solid rgb(170, 170, 170);
+	padding: 2px;
+	line-height: 18px;
+	height: 20px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+/* content */
+.time {
+	float: right;
+	margin: 5px;
+}
+.name {
+	float: left;
+	margin: 5px;
+}
+.word {
+	clear: left;
+	line-height: 1.5em;
+	font-size: 14px;
+	margin: 5px;
+}
+#list .hide,#list .to,#list .from,.to span,.from span {
+	display: none;
+}
+.from,.to{
 	cursor: pointer;
 }
-/*end*/
+.from {
+	/*float: right;*/
+}
+.to {
+	float: right;
+}
+
+.search .content {
+	margin: 10px;
+}
+.relate{
+	clear: both;
+}
