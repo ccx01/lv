@@ -1,5 +1,5 @@
 <?php
-$con=mysql_connect('localhost','root','root') or die('wrong');
+$con=mysql_connect('localhost','root','root') or die('connect failure');
 mysql_query('set names utf8');
 mysql_select_db('sign');
 ?>

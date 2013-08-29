@@ -5,7 +5,7 @@ include('../common.php');
 if($_POST['sort']){
 	$sort=$_POST['sort'];
 	if($sort=="random"){
-		$sql="SELECT * FROM wtow ORDER BY id  DESC limit 7";
+		$sql="SELECT * FROM wtow ORDER BY id DESC limit 7";
 		$result = mysql_query($sql);
 		while($row = mysql_fetch_array($result))
 		{
@@ -56,8 +56,8 @@ if($_POST['sort']){
 			}
 		}
 	}
-}else{
-	if($_POST['id']){
+}
+if($_POST['id']){
 		$sql="SELECT * FROM wtow where id='".$_POST['id']."'";
 
 		$result = mysql_query($sql);
@@ -68,9 +68,15 @@ if($_POST['sort']){
 					<p class="name">'.$row["name"].'</p>
 					<p class="title">'.$row["words"].'</p>
 					<div class="more">'.$row["other"].'</div>
+					<div class="save"></div>
 				</div>';
 		}
-
+		
+		echo '<div class="leavemessage hide">
+				<textarea></textarea><a class="submit" title="卖萌可耻">>.<</a>
+				<input type="hidden" class="id" value="'.$_POST['id'].'" />
+			</div>';
+			
 		$sql="SELECT * FROM wtow where tid='".$_POST['id']."' ORDER BY id  DESC";
 
 		$result = mysql_query($sql);
@@ -83,11 +89,26 @@ if($_POST['sort']){
 					<div class="more">'.$row["other"].'</div>
 				</div>';
 		}
-		echo '<div class="leavemessage">
-				<textarea></textarea><a class="submit" title="卖萌可耻">>.<</a>
-				<input type="hidden" class="id" value="'.$_POST['id'].'" />
-			</div>';
-	}
+}
+if($_POST['way']){
+		if($_POST['way']=="1"){
+			$sql="SELECT * FROM wtow where name NOT LIKE '".$_POST['keyword']."' ORDER BY id DESC limit 77";			
+		}else{
+			$sql="SELECT * FROM wtow where words LIKE '%".$_POST['keyword']."%' OR other LIKE '%".$_POST['keyword']."%' OR sort LIKE '%".$_POST['keyword']."%' OR name LIKE '%".$_POST['keyword']."%' ORDER BY id DESC limit 77";
+		}
+
+		$result = mysql_query($sql);
+		while($row = mysql_fetch_array($result))
+		{
+			echo '<div class="item '.$row["sort"].'">
+					<div class="tip">
+						<div class="line"/>
+						<div class="line2"/>
+						<span class="tipText">'.$row["sort"].'</span>
+					</div>
+					<input type="hidden" class="id" value="'.$row["id"].'" />
+				</div>';
+		}
 }
 mysql_close($con);
 ?>

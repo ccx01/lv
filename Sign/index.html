@@ -14,7 +14,12 @@
 		<tbody>
 			<tr><td>tid:</td><td><input type="text" name="tid"/></td></tr>
 			<tr><td>name:</td><td><input type="text" name="name" value="Sign"/></td></tr>
-			<tr><td>sort:</td><td><input type="text" name="sort" value="words"/></td></tr>
+			<tr><td>sort:</td><td>
+			<input type="radio" name="sort" value="words" id="words" /><label for="words">words</label>
+			<input type="radio" name="sort" value="video" id="video" /><label for="video">video</label>
+			<input type="radio" name="sort" value="game" id="game" /><label for="game">game</label>
+			<input type="radio" name="sort" value="article" id="article" /><label for="article">article</label>
+			</td></tr>
 			<tr><td>words:</td><td><textarea name="words"></textarea></td></tr>
 			<tr><td>other:</td><td><textarea name="other"></textarea></td></tr>
 		</tbody>

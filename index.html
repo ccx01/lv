@@ -12,18 +12,32 @@
 	
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
-
 </head>
 <body>
+	<div class="loading">loading</div>
+	<a href="/game?rand=<?php echo rand(); ?>" id="gameLink"></a>
 	<div id="filter">
-		<label for="video" class="video"></label><input id="video" type="checkbox" />
-		<label for="game" class="game"></label><input id="game" type="checkbox" />
-		<label for="words" class="words"></label><input id="words" type="checkbox" />
-		<label for="article" class="article"></label><input id="article" type="checkbox" />
+		<label for="video" class="video"></label>
+		<label for="game" class="game"></label>
+		<label for="words" class="words"></label>
+		<label for="article" class="article"></label>
+		<br>
+		<input id="video" type="checkbox" />
+		<input id="game" type="checkbox" />
+		<input id="words" type="checkbox" />
+		<input id="article" type="checkbox" />
 	</div>
 	<div id="menu"></div>
 	<div id="content">
 		<a class="close"></a>
+	</div>
+	<div id="search">
+		<select>
+			<option value="1">filter</option>
+			<option value="2">include</option>
+		</select>
+		<input type="text" value="Sign" />
+		<a>search</a>
 	</div>
 </body>
 </html>
