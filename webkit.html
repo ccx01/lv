@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name ="keywords" content="ccx01,sign,the day of sign,signXday,沙因,游戏">
+	<meta name="description" content="just for fun,及时行乐">
+
+	<title>the day of sign</title>
+	
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<style>
+*{-webkit-transition:all 1s ease-out;}
+body{
+	height: 100%;
+	/*overflow: hidden;*/
+}
+div{
+	-webkit-box-sizing: border-box;	
+}
+#world{
+	-webkit-perspective: 500;
+}
+.load_mes{
+	position: absolute;
+	z-index: 9999;
+	left: 40%;
+	top:40%;
+	width: 200px;
+	height: 50px;
+	padding: 20px 10px 0 10px;
+	overflow:hidden;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	font-family:'microsoft yahei';
+	box-shadow: 2px 2px 6px #aaa;
+	text-align:center;
+	display: none;
+}
+.content{
+	display: block;
+	width: 900px;
+	height: 600px;	
+	position: absolute;
+	background: rgba(255, 255, 255, .5);
+}
+.window{
+	display: block;
+	/*background: #ccc;*/
+	width: 900px;
+	height: 600px;
+	margin: 20px auto;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transform: translateX(-100px) rotateY(-30deg);
+}
+.z0,.z1{
+	-webkit-transform: rotateY(0deg) !important;
+}
+#front .mes{
+	width: 300px;
+	height: 200px;
+	/*float: left;*/
+	position: absolute;
+	left: 300px;
+	top: 200px;
+	border: 5px solid #fff;
+	opacity: 0.6;
+	background: #ccc;
+}
+#front .mes:hover{
+	box-shadow: 2px 2px 6px #ccc;
+}
+#front .align{
+	text-align: center;
+}
+#front .align:hover{
+	-webkit-transform: rotateY(30deg) !important;
+}
+.align img{
+	margin: 25px;
+}
+#home{
+	position: fixed;
+	top:0;
+	left: 50%;
+	width: 100px;
+	height: 15px;
+	background: #000;
+	opacity: .5;
+	margin: 0 -50px;
+	z-index: 1000;
+}
+#home:hover{
+	height: 30px;
+}
+.arrow>div{
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;	
+}
+.arrow>div:hover{
+	width: 100px;
+	height: 30px;	
+}
+.top{
+	position: fixed;
+	top:0;
+	left: 0;
+	background: #f66;
+	z-index: 1000;
+}
+.left{
+	position: fixed;
+	bottom:0;
+	left: 0;
+	background: #6cf;
+	z-index: 1000;
+}
+.right{
+	position: fixed;
+	right:0;
+	top: 0;
+	background: #f96;
+	z-index: 1000;
+}
+.bottom{
+	position: fixed;
+	bottom:0;
+	right: 0;
+	background: #9c6;
+	z-index: 1000;
+}
+#top{
+	position: absolute;
+/*	top:0px;
+	left: 300px;*/
+	-webkit-transform: translateY(-1000px) rotateX(90deg);
+	/*-webkit-transform-origin: 50% 0%;*/
+	background:  rgba(255, 102, 102, .5);
+	box-shadow: 2px 2px 6px #f66;
+	border-radius: 15px;
+	padding: 20px;
+}
+#left{
+	position: absolute;
+/*	top:200px;
+	left: 0px;*/
+	-webkit-transform: translateX(-3000px) translateY(2000px) rotateY(-90deg);
+	/*-webkit-transform-origin: 0% 50%;*/
+	background:  rgba(102, 204, 255, .5);
+	box-shadow: 2px 2px 6px #6cf;
+	border-radius: 15px;
+	padding: 20px;
+}
+#bottom{
+	position: absolute;
+/*	top:400px;
+	left: 300px;*/
+	-webkit-transform: translateZ(-1000px) rotateX(-90deg);
+	/*-webkit-transform-origin: 50% 100%;*/
+	background:  rgba(153, 204, 102, .5);
+	box-shadow: 2px 2px 6px #9c6;
+	border-radius: 15px;
+	padding: 20px;
+}
+#right{
+	position: absolute;
+/*	top:200px;
+	left: 600px;*/
+	-webkit-transform:translateX(250px) translateZ(1500px) rotateY(90deg);
+	/*-webkit-transform-origin: 100% 50%;*/
+	background:  rgba(255, 153, 102, .5);
+	box-shadow: 2px 2px 6px #f96;
+	border-radius: 15px;
+	padding: 20px;
+}
+
+.scale{
+	-webkit-transform: translateX(180px) translateZ(100px) rotateY(30deg) scale(1.1) !important;
+	top: 200px !important;
+	left: 300px !important;
+	opacity:1 !important;
+	z-index: 999;
+}
+.mes img{
+	margin: 10px;
+}
+.showmes,.mes img:hover{
+	-webkit-transform: rotateY(180deg);
+}
+.word{
+	float: right;
+	display: block;
+	width: 150px;
+	height: 160px;
+	word-wrap: break-word;
+	word-break: normal;
+	overflow: hidden;
+	margin: 10px;
+}
+.name,.time{
+	margin: 0 10px;
+	display: block;
+	width: 100px;
+}
+.mes span{
+	display: none;
+}
+.hide{
+	opacity:0.1 !important;
+}
+#duck{
+	background: url(images/duck.png) no-repeat 0px 0px;
+	height: 75px;
+	width: 75px;
+	position: absolute;
+	-webkit-transition:all 0s ease-out;
+	/*-webkit-animation:fly 1s linear infinite;*/
+}
+/*@-webkit-keyframes fly {
+	0% {background-position: -75px 0px;}
+	50% {background-position: -150px 0px;}
+	100% {background-position: 0px 0px;}
+}*/
+</style>
+<script type="text/javascript">
+$(function(){
+
+	var t=setInterval(duck,60);
+	function duck(){
+		$("#duck").css({
+			"background-position-x":function(i,val){
+				var x;
+				if(val=="-150px") x=0;
+				else x=parseFloat(val)-75;
+				return x;
+			}
+		});
+	}
+	var shot=false;
+	function fly(){
+	if(!shot){
+	var top=Math.random()*600,
+		left=Math.random()*900,
+		bgY=-parseInt(Math.random()*3)*74,
+		time=Math.random()*2000+1000;
+	$("#duck").animate({
+		"top":top,
+		"left":left
+	},time);
+	$("#duck").css({"background-position-y":bgY});
+	setTimeout(fly,time);
+	}
+	// console.log(time);
+	}
+	fly();
+	$("#duck").click(function(){
+		shot=true;
+		$("#duck").stop().css({"background-position-y":-4*74});
+		setTimeout(function(){
+			clearInterval(t);
+			$("#duck").css({
+				"width":"126px",
+				"height":"81px",
+				"background":"url(images/j1.jpg)",
+				"-webkit-transform": "scale(1) rotateY(30deg)"
+			});
+			$("#jword").text("honey!");
+		},700);
+		setTimeout(function(){
+			$("#duck").css({
+				"width":"124px",
+				"height":"81px",
+				"background":"url(images/j2.jpg)",
+				"-webkit-transform": "scale(1.2) rotateY(30deg)"
+			});
+			$("#jword").text("我来了！");
+		},1700);
+		setTimeout(function(){
+			$("#duck").css({
+				"width":"140px",
+				"height":"104px",
+				"background":"url(images/j3.jpg)",
+				"-webkit-transform": "scale(1.5) rotateY(30deg)"
+			});			
+			$("#jword").text("我来了啊！");
+		},2700);
+		setTimeout(function(){
+			$("#duck").css({
+				"width":"146px",
+				"height":"108px",
+				"background":"url(images/j4.jpg)",
+				"-webkit-transform": "scale(2) rotateY(30deg)"
+			});
+			$("#jword").text("啊！");
+		},3700);
+		setTimeout(function(){
+			$("#duck").css({
+				"width":"140px",
+				"height":"104px",
+				"background":"url(images/j3.jpg)",
+				"-webkit-transform": "scale(1.5) rotateY(30deg)"
+			});			
+			$("#jword").text("小嘎！");
+		},5700);
+		setTimeout(function(){
+			$("#duck").css({
+				"width":"124px",
+				"height":"81px",
+				"background":"url(images/j2.jpg)",
+				"-webkit-transform": "scale(1.2) rotateY(30deg)"
+			});
+			$("#jword").text("小嘎啊！");
+		},7700);
+		setTimeout(function(){
+			$("#duck").css({
+				"width":"126px",
+				"height":"81px",
+				"background":"url(images/j1.jpg)",
+				"-webkit-transform": "scale(1) rotateY(30deg)"
+			});
+			$("#jword").text("啊!");
+		},8700);
+		setTimeout(function(){
+			$("#duck").hide();
+		},9700);
+	});
+
+
+
+	$(".load_mes").ajaxStart(function(){
+	   $(this).html("loading").fadeIn();
+	}).ajaxStop(function(){
+	   $(this).html(" loaded").fadeOut();
+	});
+
+	$(".top,#top").click(function(){
+		$(".window").css({"-webkit-transform":"translateZ(-1000px) rotateX(-90deg)"});
+	});
+	$(".left,#left").click(function(){
+		$(".window").css({"-webkit-transform":"translateZ(-3000px) translateY(-2000px) rotateY(90deg)"});
+	});
+	$(".right,#right").click(function(){
+		$(".window").css({"-webkit-transform":"translateX(1500px) translateZ(-250px) rotateY(-90deg)"});
+	});
+	$(".bottom,#bottom").click(function(){
+		$(".window").css({"-webkit-transform":"translateY(-1000px) rotateX(90deg)"});
+	});
+	$("#front").click(function(){
+		$(".window").css({"-webkit-transform":"translateX(-100px) rotateY(-30deg)"});
+	});
+	$(".align").hover(function(){
+			$(".mes").addClass("z0");
+	},function(){
+			$(".mes").removeClass("z0");
+	}).click(function(){
+		if($(this).hasClass("z1")){
+			$(".mes").removeClass("z1");
+			$(this).html("");
+		}else{
+			$(".mes").addClass("z1");
+			$(this).html('<img src="images/locked.png"/>');
+		}
+	});
+	$(".mes").not(".align").click(function(){
+		$(".scale").removeClass("scale");
+		$(this).addClass("scale");
+	});
+	$("#home").click(function(){
+		$(".window").css({"-webkit-transform":"translateX(-100px) rotateY(-30deg)"});
+		$(".scale").removeClass("scale");
+	});
+	$(".mes:not('.align') img").click(function(){
+		$(".showmes").removeClass("showmes");
+		$(this).addClass("showmes");
+		$("span").hide();
+		$(this).nextAll("span").css({"display":"block"}).fadeIn();
+	});
+
+	$.ajax({
+       url:'mes/webkit.php', 
+       dataType:'json', 
+       success:function(data) {
+		  for(i=0;i<data.length;i++){ 
+    		$('.mes').eq(i).children(".word").html("根据相关心情，该内容不予以显示");
+    		$('.mes').eq(i).children(".name").html(data[i].name);
+    		$('.mes').eq(i).children(".time").html(data[i].time);
+		  }
+  		} 
+     });
+
+});
+</script>
+</head>
+  <body>
+  <div id="home"></div>
+  <div id="world" style="background: #fff;">
+	  <div class="arrow">
+	  	<div class="top"></div>
+	  	<div class="left"></div>
+	  	<div class="right"></div>
+	  	<div class="bottom"></div>
+	  </div>  	
+	  <div class="window">
+	  	<div class="content" id="top">先试试吧，半成品，这个放上来以后就不想在动了，好像在赶工一样，很不爽的感觉。</div>
+	    <div class="content" id="left"></div>
+	    <div class="content" id="right"></div>
+	    <div class="content" id="bottom"></div>
+	  	<div id="front">
+		  	<div class="mes" style="-webkit-transform:translateZ(100px);top:0px;left:0px;"><img src="images/1.jpg"/><span class="word"></span><span class="name"></span><span class="time"></span></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(-2220px);top:0px;left:300px;"><img src="images/2.jpg"/><span class="word"></span><span class="name"></span><span class="time"></span></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(-500px);top:0px;left:600px;"><img src="images/3.jpg"/><span class="word"></span><span class="name"></span><span class="time"></span></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(300px);top:200px;left:0px;"><img src="images/4.jpg"/><span class="word"></span><span class="name"></span><span class="time"></span></div>
+		  	<div class="align mes" style="top:200px;left:300px;"></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(-5000px);top:200px;left:600px;"><img src="images/5.jpg"/><span class="word"></span><span class="name"></span><span class="time"></span></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(1110px);top:400px;left:0px;"><img src="images/6.jpg"/><span class="word"></span><span class="name"></span><span class="time"></span></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(-200px);top:400px;left:300px;"><img src="images/7.jpg"/><span class="word"></span><span class="name"></span><span class="time"></span></div>
+		  	<div class="mes" style="-webkit-transform:translateZ(-1130px);top:400px;left:600px;"><img src="images/8.jpg"/><span class="word"></span><span class="name"></span><span class="time"></span></div>
+	    </div>
+	    <div id="duck"><div id="jword" style="margin-right:100px"></div></div>
+	  </div>
+  </div>
+  <div class="load_mes"></div>
+</body>
+</html>
